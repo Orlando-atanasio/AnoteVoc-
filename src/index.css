@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --apple-amber: #E49F13;
+    --apple-amber-dark: #D97706;
+    --apple-amber-light: #FEF3C7;
+    --apple-bg-grouped: #F2F2F7;
+    --apple-bg-card: #FFFFFF;
+    --apple-text-primary: #000000;
+    --apple-text-secondary: #8E8E93;
+    --apple-divider: #E5E5EA;
+    --apple-orange-pin: #FF9500;
+    --apple-red-delete: #FF3B30;
+    /* A6: Android 15+ edge-to-edge insets (Capacitor SystemBars, css mode) */
+    --sat: env(safe-area-inset-top, 0px);
+    --sab: env(safe-area-inset-bottom, 0px);
+    --sal: env(safe-area-inset-left, 0px);
+    --sar: env(safe-area-inset-right, 0px);
+  }
+
+  * {
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    box-sizing: border-box;
+  }
+
+  input, textarea, [contenteditable="true"] {
+    user-select: text;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: #000000;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+    color: #000000;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* A6: keep headers/toolbars clear of status bar and gesture bar */
+  #root {
+    padding-top: var(--sat);
+    padding-bottom: var(--sab);
+    padding-left: var(--sal);
+    padding-right: var(--sar);
+  }
+}
+
+/* Apple iOS Glass and Blur Utilities */
+.apple-glass {
+  background: rgba(248, 248, 248, 0.85);
+  backdrop-filter: blur(25px) saturate(180%);
+  -webkit-backdrop-filter: blur(25px) saturate(180%);
+}
+
+.apple-glass-dark {
+  background: rgba(30, 30, 30, 0.85);
+  backdrop-filter: blur(25px) saturate(180%);
+  -webkit-backdrop-filter: blur(25px) saturate(180%);
+}
+
+.apple-card-shadow {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.apple-popover-shadow {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15), 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+/* Custom scrollbar iOS style */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
